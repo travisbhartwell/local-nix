@@ -19,6 +19,7 @@
       ecryptfs
 
       ## Applications
+      ledger
       skype
       weechat
     ];

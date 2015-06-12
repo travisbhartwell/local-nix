@@ -76,7 +76,6 @@
 
     ## Applications
     chromiumBeta
-    ledger
     travis-hartwell-mail
   ];
 
