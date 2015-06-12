@@ -5,13 +5,13 @@
       installFlags = "NO_BIN_LINK=t";
     });
 
-    localPackagesHome = "/home/nafai/Projects";
+    localPackagesHome = "/home/nafai/Projects/local-apps";
 
     emacs-server =
-      pkgs.callPackage ..${localPackagesHome}/local-apps/emacs-server {};
+      pkgs.callPackage ..${localPackagesHome}/emacs-server {};
     gtkmenu =
       pkgs.haskellPackages.callPackage ${localPackagesHome}/gtkmenu {};
     travis-hartwell-mail =
-      pkgs.callPackage ${localPackagesHome}/local-apps/travis-hartwell-mail {};
+      pkgs.callPackage ${localPackagesHome}/travis-hartwell-mail {};
   };
 }
