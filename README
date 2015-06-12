@@ -1,0 +1,4 @@
+To use this, symlinks need to be set up to /etc/nixos, this should be handled by
+the git post commit hook.  common/ and machines/ should be symlinked as
+subdirectories of /etc/nixos, and then the file for the given machine should be
+symlinked as /etc/nixos/configuration.nix.
