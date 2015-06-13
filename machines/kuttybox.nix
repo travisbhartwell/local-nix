@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ../common/config.nix
+      /etc/nixos/common/config.nix
     ];
 
     boot.loader.grub.device = "/dev/sda";
