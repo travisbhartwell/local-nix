@@ -13,7 +13,8 @@ create_symlink_if_needed() {
     actual_target=$(readlink -en "${linkname}")
 
     # Symlink is what it should be
-    [ "${target}" == "${actual_target}" ] && return 0
+    [ "${target}" == "${actual_target}" ] &&
+        return 0
 
     # Otherwise, create it
     echo "Creating/updating symlink to ${target}"
@@ -23,7 +24,9 @@ create_symlink_if_needed() {
 main() {
     # This can be called as different hooks.
     # It needs to act slightly differently when used for post-rewrite:
-    [ "${PROGNAME}" == "post-rewrite" ] && [ "$1" != "rebase" ] && exit 0
+    [ "${PROGNAME}" == "post-rewrite" ] &&
+        [ "$1" != "rebase" ] &&
+        exit 0
 
     # Check parameters for validity
     [ -z "${HOSTNAME}" ] &&
