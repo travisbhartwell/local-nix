@@ -43,7 +43,7 @@
       description = "Backup my home directory";
       startAt = "*-*-* 01:00:00";
       path = with pkgs; [ rsync ];
-      serviceConfig.ExecStart = ''
+      script = ''
         rsync -av /home/nafai /media/MyBook2TB/Backup/shedemei/home/nafai
       '';
     };
