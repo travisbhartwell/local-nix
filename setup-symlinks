@@ -1,46 +1,48 @@
 #!/run/current-system/sw/bin/bash
 
-NIXOS_CONFIG_DIR=/etc/nixos
-PROJECT_DIR=$(git rev-parse --show-toplevel)
-HOSTNAME=$(hostname)
+readonly PROGNAME=$(basename "$0")
+readonly NIXOS_CONFIG_DIR=/etc/nixos
+readonly PROJECT_DIR=$(git rev-parse --show-toplevel)
+readonly HOSTNAME=$(hostname)
 
 create_symlink_if_needed() {
     local target=$1; shift
     local linkname=$1
 
-    local actual_target=$(readlink -en ${linkname})
+    local actual_target
+    actual_target=$(readlink -en "${linkname}")
 
     # Symlink is what it should be
     [ "${target}" == "${actual_target}" ] && return 0
 
     # Otherwise, create it
     echo "Creating/updating symlink to ${target}"
-    sudo ln -snb --suffix=".backup" ${target} ${linkname}
+    sudo ln -snb --suffix=".backup" "${target}" "${linkname}"
 }
 
 main() {
     # This can be called as different hooks.
     # It needs to act slightly differently when used for post-rewrite:
-    [ "$(basename $0)" == "post-rewrite" ] && [ "$1" != "rebase" ] && exit 0
+    [ "${PROGNAME}" == "post-rewrite" ] && [ "$1" != "rebase" ] && exit 0
 
     # Check parameters for validity
-    [ -z ${HOSTNAME} ] &&
+    [ -z "${HOSTNAME}" ] &&
         echo "No HOSTNAME found!" 2>&1 &&
         exit 1
 
     [ ! -e "${PROJECT_DIR}/machines/${HOSTNAME}.nix" ] &&
         echo "No machine specific configuration found!" 2>&1 &&
-        exit 1
+        exit 1 
 
     # Create symlinks for common and machines subdirectories
     create_symlink_if_needed \
-        ${PROJECT_DIR}/common \
-        ${NIXOS_CONFIG_DIR}/common
+        "${PROJECT_DIR}"/common \
+        "${NIXOS_CONFIG_DIR}"/common
 
     # Create symlink for machine specific configuration to configuration.nix
     create_symlink_if_needed \
-        ${PROJECT_DIR}/machines/${HOSTNAME}.nix \
-        ${NIXOS_CONFIG_DIR}/configuration.nix
+        "${PROJECT_DIR}"/machines/"${HOSTNAME}".nix \
+        "${NIXOS_CONFIG_DIR}"/configuration.nix
 }
 
-main $@
+main "$@"
