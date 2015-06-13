@@ -4,7 +4,7 @@
   imports =
     [
       ./common/config.nix
-    ]
+    ];
 
     boot.loader.grub.device = "/dev/sdb";
 

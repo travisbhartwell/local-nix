@@ -8,10 +8,10 @@
     localPackagesHome = "/home/nafai/Projects/local-apps";
 
     emacs-server =
-      pkgs.callPackage ..${localPackagesHome}/emacs-server {};
+      pkgs.callPackage "${localPackagesHome}/emacs-server" {};
     gtkmenu =
-      pkgs.haskellPackages.callPackage ${localPackagesHome}/gtkmenu {};
+      pkgs.haskellPackages.callPackage "${localPackagesHome}/gtkmenu" {};
     travis-hartwell-mail =
-      pkgs.callPackage ${localPackagesHome}/travis-hartwell-mail {};
+      pkgs.callPackage "${localPackagesHome}/travis-hartwell-mail" {};
   };
 }

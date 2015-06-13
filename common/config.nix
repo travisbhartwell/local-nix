@@ -5,7 +5,7 @@
 {
   imports =
     [
-      ../hardware.nix
+      /etc/nixos/hardware-configuration.nix
       ./local-pkgs.nix
     ];
 
