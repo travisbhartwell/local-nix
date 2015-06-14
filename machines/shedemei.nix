@@ -44,7 +44,7 @@
       startAt = "*-*-* 01:00:00";
       path = with pkgs; [ rsync ];
       script = ''
-        rsync -av /home/nafai /media/MyBook2TB/Backup/shedemei/home/nafai
+        rsync -av /home/nafai /media/MyBook2TB/Backup/shedemei/home
       '';
     };
 }
