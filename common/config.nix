@@ -62,12 +62,15 @@
     vimHugeX
 
     ## Basic X
-    gnome3.adwaita-icon-theme
+    compton
     dmenu
     dunst
     gmrun
+    gnome3.adwaita-icon-theme
+    gnome3.gnome_themes_standard
     gtkmenu
     i3
+    i3lock
     i3status
     pa_applet
     rxvt_unicode-with-plugins
@@ -118,11 +121,7 @@
 
     desktopManager.xterm.enable = false;
 
-    displayManager.slim = {
-      enable = true;
-      defaultUser = "nafai";
-      autoLogin = true;
-    };
+    displayManager.lightdm.enable = true;
   };
 
   users.extraUsers."nafai" = {

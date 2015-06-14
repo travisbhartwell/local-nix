@@ -13,5 +13,9 @@
       wireless.enable = true;
     };
 
-    services.xserver.synaptics.enable = true;
+    services.xserver = {
+      synaptics.enable = true;
+
+      displayManager.desktopManagerHandlesLidAndPower = false;
+    };
 }
