@@ -2,7 +2,7 @@
 # configuration file.
 { config, pkgs, ... }:
 
-{
+3{
   imports =
     [
       /etc/nixos/hardware-configuration.nix
@@ -13,11 +13,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-
-    chromium = {
-      enablePepperFlash = true;
-      enablePepperPDF = true;
-    };
   };
 
   boot.loader.grub = {
@@ -25,19 +20,16 @@
     version = 2;
   };
 
-  hardware.pulseaudio.enable = true;
-
   networking = {
     domain = "travishartwell.net";
     # Allow ssh and temporary web server
-    firewall.allowedTCPPorts = [ 22 8888 ];
+    firewall.allowedTCPPorts = [ 22 ];
   };
 
   time.timeZone = "America/Denver";
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
-    usbutils
     lsof
 
     ## command line utilities
@@ -59,39 +51,7 @@
     emacs
     emacs-server
     gitAndTools.gitFull
-    vimHugeX
-
-    ## Basic X
-    compton
-    dmenu
-    dunst
-    gmrun
-    gnome3.adwaita-icon-theme
-    gnome3.gnome_themes_standard
-    gtkmenu
-    i3
-    i3lock
-    i3status
-    pa_applet
-    rxvt_unicode-with-plugins
-    xdotool
-    xsel
-
-    ## Applications
-    chromiumBeta
-    travis-hartwell-mail
   ];
-
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      dejavu_fonts
-      source-code-pro
-      ubuntu_font_family
-    ];
-  };
 
   programs.bash.enableCompletion = true;
 
@@ -100,30 +60,6 @@
   # Services
   services.openssh.enable = true;
 
-  # Smart disk monitoring
-  services.smartd = {
-    enable = true;
-    devices = [
-      { device = "/dev/sda"; }
-    ];
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    autorun = true;
-
-    windowManager = {
-      i3.enable = true;
-      default = "i3";
-    };
-
-    desktopManager.xterm.enable = false;
-
-    displayManager.lightdm.enable = true;
-  };
-
   users.extraUsers."nafai" = {
     isNormalUser = true;
     description = "Travis B. Hartwell";
@@ -131,5 +67,10 @@
     extraGroups = ["wheel"];
     shell = "/run/current-system/sw/bin/bash";
     uid = 1000;
+    openssh.authorizedKeys.keys = [
+     ''
+       ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGfGw56gbi6w4hkH/mIg2ELtNVfl62joj2MXJMaaye2hSGtsyQkpjPVM9KgPtbe06s4DmhuR52RWA8XnD2QqxXCxYeTnZ5a9InTJFds67BsDdxM1/gQy25AqmHb9Ohn1cJW3NqesXAHENTGQLyheEM2gRhfB3JwbzKJzrSPUFOKN4dsPt7lQVZ+IIURuSQnXmO3Zj3tymXv/heljnOT1QS6pQdBNiup9P1evE/PkZbJPfcaiNyRCIuM7P0dFLTBr8z8eVWlGFDT5x8kUbeU69YRg7wCd4MEatSk5EHvhm2zyeBdGi99roSCjLgB8I+cxGIXt5DN3TY1z0YJG4T1LcR nafai@shedemei
+     ''
+     ];
   };
 }

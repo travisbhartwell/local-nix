@@ -4,6 +4,7 @@
   imports =
     [
       /etc/nixos/common/config.nix
+      /etc/nixos/common/desktop.nix
     ];
 
     boot.loader.grub.device = "/dev/sdb";
@@ -36,6 +37,13 @@
       { device = "/dev/sdc"; }
       { device = "/dev/sdd"; }
     ];
+
+    # Enable udev rules for Android devices
+    services.udev.packages = [ android-udev-rules ];
+    ## If not contained above, also add a rule for the Flame
+    ## services.udev.extraRules = ''
+    ##
+    ## ''
 
     # Set up backup job
     systemd.services.home-backup = {
