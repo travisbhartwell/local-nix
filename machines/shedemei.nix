@@ -39,7 +39,7 @@
     ];
 
     # Enable udev rules for Android devices
-    services.udev.packages = [ android-udev-rules ];
+    services.udev.packages = with pkgs; [ android-udev-rules ];
     ## If not contained above, also add a rule for the Flame
     ## services.udev.extraRules = ''
     ##

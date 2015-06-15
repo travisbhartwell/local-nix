@@ -2,7 +2,7 @@
 # configuration file.
 { config, pkgs, ... }:
 
-3{
+{
   imports =
     [
       /etc/nixos/hardware-configuration.nix
@@ -11,9 +11,7 @@
 
   nix.useChroot = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   boot.loader.grub = {
     enable = true;

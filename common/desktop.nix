@@ -1,12 +1,13 @@
 # Common additional configuration for desktop and laptop machines.
-{ config, pkgs, ... };
+{ config, pkgs, ... }:
+
 {
   imports =
     [
-      ./local-packages.nix
+      ./local-pkgs.nix
     ];
 
-  nixpkgs.config - {
+  nixpkgs.config = {
     chromium = {
       enablePepperFlash = true;
       enablePepperPDF = true;
@@ -22,7 +23,7 @@
     usbutils
 
     ## basic devlopment apps
-    vimHugex
+    vimHugeX
 
     ## Basic X
     compton
