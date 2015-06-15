@@ -1,5 +1,5 @@
 # Configuration for moroni, a VPS server.
-{ config, pkgs, ... }
+{ config, pkgs, ... }:
 
 {
   imports =
