@@ -32,4 +32,6 @@
         maxretry = 5
       '';
   };
+
+  services.openssh.permitRootLogin = no;
 }
