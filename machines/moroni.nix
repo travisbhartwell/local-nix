@@ -33,5 +33,5 @@
       '';
   };
 
-  services.openssh.permitRootLogin = no;
+  services.openssh.permitRootLogin = "no";
 }
