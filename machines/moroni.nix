@@ -24,7 +24,7 @@
 
   services.fail2ban = {
     enable = true;
-    services.fail2ban.jails.ssh-iptables =
+    jails.ssh-iptables =
       ''
         enabled  = true
         filter   = sshd
