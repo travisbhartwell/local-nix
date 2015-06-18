@@ -22,5 +22,14 @@
     weechat
   ];
 
-  services.fail2ban.enable = true;
+  services.fail2ban = {
+    enable = true;
+    services.fail2ban.jails.ssh-iptables =
+      ''
+        enabled  = true
+        filter   = sshd
+        action   = iptables[name=SSH, port=ssh, protocol=tcp]
+        maxretry = 5
+      '';
+  };
 }

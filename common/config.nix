@@ -29,13 +29,14 @@
   environment.systemPackages = with pkgs; [
     ## system level stuff
     lsof
+    manpages
 
     ## command line utilities
     aspell
     aspellDicts.en
     curl
     gist
-    pypyPackages.pygments
+    python27Packages.pygments
     mr
     mtr
     silver-searcher
