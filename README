@@ -1,7 +1,8 @@
 To use this, symlinks need to be set up to /etc/nixos, this should be handled by
 the git post commit hook.  common/ should be symlinked as a subdirectory of
 /etc/nixos, and then the file for the given machine should be symlinked as
-/etc/nixos/configuration.nix. 
+/etc/nixos/configuration.nix.  Also, the nixpkgs/config.nix will be symlinked in
+user's home directory.
 
 Included is a script that can be used as a git hook to accomplish this.  Set it
 up like so:
