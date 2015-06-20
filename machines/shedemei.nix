@@ -13,8 +13,8 @@
 
     networking = {
       hostName = "shedemei";
-      # Also allow ssh on port 2500 and weechat relay
-      firewall.allowedTCPPorts = [ 2500 8001 ];
+      # Also allow ssh on port 2500, mpd, and weechat relay
+      firewall.allowedTCPPorts = [ 2500 6600 8001 ];
     };
 
     environment.systemPackages = with pkgs; [
@@ -29,12 +29,20 @@
 
     hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
-    services.openssh.ports = [ 22 2500 ];
+    # MPD
+    services.mpd = {
+      enable = true;
+      extraConfig = ''
+        audio_output {
+               type		"pulse"
+               name		"Local Music Player Daemon"
+               server		"127.0.0.1"
+        }
+      '';
+    };
 
-    # Virtualbox
-    services.virtualboxHost.enable = true;
-    nixpkgs.config.virtualbox.enableExtensionPack = true;
-    users.extraGroups.vboxusers.members = [ "nafai" ];
+    # OpenSSH
+    services.openssh.ports = [ 22 2500 ];
 
     # Also watch sdc and sdd
     services.smartd.devices = [
@@ -51,7 +59,14 @@
        SUBSYSTEM=="usb", ATTRS(idVender)=="18d1", SYMLINK+="android_fastboot"
     '';
 
+    # Virtualbox
+    services.virtualboxHost.enable = true;
+    nixpkgs.config.virtualbox.enableExtensionPack = true;
+    users.extraGroups.vboxusers.members = [ "nafai" ];
+
+    # Xserver
     services.xserver.vaapiDrivers = with pkgs; [ vaapiIntel vaapiVdpau ];
+
     # Set up backup job
     systemd.services.home-backup = {
       enable = true;
