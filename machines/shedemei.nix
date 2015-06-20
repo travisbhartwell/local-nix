@@ -27,6 +27,8 @@
       weechat
     ];
 
+    hardware.pulseaudio.package = pkgs.pulseaudioFull;
+
     services.openssh.ports = [ 22 2500 ];
 
     # Virtualbox
