@@ -9,7 +9,11 @@
       ./local-pkgs.nix
     ];
 
-  nix.useChroot = true;
+  nix = {
+    useChroot = true;
+    binaryCaches =  [ "https://cache.nixos.org/" "https://hydra.nixos.org" ];
+    trustedBinaryCaches = [ "https://cache.nixos.org/" "https://hydra.nixos.org" ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
