@@ -44,10 +44,12 @@
 
     # Enable udev rules for Android devices
     services.udev.packages = with pkgs; [ android-udev-rules ];
-    ## If not contained above, also add a rule for the Flame
-    ## services.udev.extraRules = ''
-    ##
-    ## ''
+    # Add rule for the Firefox Flame phone
+    services.udev.extraRules = ''
+       ENV{adb_user}="yes"
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", SYMLINK+="android_adb"
+       SUBSYSTEM=="usb", ATTRS(idVender)=="18d1", SYMLINK+="android_fastboot"
+    '';
 
     # Set up backup job
     systemd.services.home-backup = {
