@@ -23,7 +23,7 @@
 
       ## Music
       mpd
-      mpc
+      mpc_cli
       ncmpcpp
 
       ## Applications
