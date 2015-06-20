@@ -51,6 +51,7 @@
        SUBSYSTEM=="usb", ATTRS(idVender)=="18d1", SYMLINK+="android_fastboot"
     '';
 
+    services.xserver.vaapiDrivers = with pkgs; [ vaapiIntel vaapiVdpau ];
     # Set up backup job
     systemd.services.home-backup = {
       enable = true;
