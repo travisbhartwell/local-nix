@@ -27,6 +27,7 @@
 
     ## Basic X
     compton
+    conky
     dmenu
     dunst
     gmrun
@@ -35,7 +36,6 @@
     gtkmenu
     i3
     i3lock
-    i3status
     pa_applet
     rxvt_unicode-with-plugins
     xdotool

@@ -21,6 +21,11 @@
       ## temporary
       ecryptfs
 
+      ## Music
+      mpd
+      mpc
+      ncmpcpp
+
       ## Applications
       ledger
       skype
