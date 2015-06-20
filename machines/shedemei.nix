@@ -7,6 +7,8 @@
       /etc/nixos/common/desktop.nix
     ];
 
+    # I don't use the wireless card, so don't load it.
+    boot.blacklistedKernelModules = [ "ath9k" ];
     boot.loader.grub.device = "/dev/sdb";
 
     networking = {
