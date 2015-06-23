@@ -24,7 +24,7 @@
 
   networking = {
     domain = "travishartwell.net";
-    # Allow ssh and temporary web server
+    # Allow ssh
     firewall.allowedTCPPorts = [ 22 ];
   };
 

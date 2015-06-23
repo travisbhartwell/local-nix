@@ -16,6 +16,7 @@
 
   hardware.pulseaudio.enable = true;
 
+  # Allow temporary web server
   networking.firewall.allowedTCPPorts = [ 8888 ];
 
   environment.systemPackages = with pkgs; [
