@@ -32,21 +32,24 @@
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
+    file
     lsof
     manpages
+    psmisc
 
     ## command line utilities
     aspell
     aspellDicts.en
     curl
     gist
-    python27Packages.pygments
     mr
     mtr
-    silver-searcher
     mutt
     nix-repl
+    python27Packages.pygments
+    silver-searcher
     tmux
+    unzip
     vcsh
     which
 
