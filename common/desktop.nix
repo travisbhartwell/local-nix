@@ -32,7 +32,7 @@
 
     ## Emacs helpers
     ghostscript
-    poppler-utils
+    poppler_utils
 
     ## Basic X
     compton
