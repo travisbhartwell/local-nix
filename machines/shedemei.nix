@@ -34,6 +34,13 @@
 
     hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
+    # Dovecot IMAP server
+    services.dovecot2 = {
+      enable = true;
+      enableImap = true;
+      mailLocation = "maildir:~/Mail";
+    };
+
     # MPD
     services.mpd = {
       enable = true;
