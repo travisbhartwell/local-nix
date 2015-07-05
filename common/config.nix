@@ -22,6 +22,11 @@
     version = 2;
   };
 
+  i18n = {
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
+
   networking = {
     domain = "travishartwell.net";
     # Allow ssh
