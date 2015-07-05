@@ -21,10 +21,18 @@
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
+    pciutils
     usbutils
+
+    ## Graphics utilities
+    imagemagick
 
     ## basic devlopment apps
     vimHugeX
+
+    ## Emacs helpers
+    ghostscript
+    poppler-utils
 
     ## Basic X
     compton
@@ -40,6 +48,7 @@
     pa_applet
     rxvt_unicode-with-plugins
     xdotool
+    xlibs.xmodmap
     xsel
 
     ## Applications

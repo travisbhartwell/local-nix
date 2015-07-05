@@ -26,6 +26,11 @@
       mpc_cli
       ncmpcpp
 
+      ## Email
+      gnupg
+      offlineimap
+      w3m
+
       ## Applications
       ledger
       skype

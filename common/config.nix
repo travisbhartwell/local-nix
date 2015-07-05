@@ -37,6 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
+    binutils
     file
     lsof
     manpages
