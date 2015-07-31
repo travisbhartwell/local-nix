@@ -1,7 +1,7 @@
-#! /usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p git yad hicolor_icon_theme
 
 set -o errexit
-set -o nounset
 set -o pipefail
 
 # Check out the channels repo with the channel you are running, like:
@@ -15,5 +15,13 @@ git pull -q
 readonly FULL_LOCAL_CURRENT_SHA1=$(git rev-parse "${LOCAL_VERSION}")
 readonly CHANNEL_CURRENT_SHA1=$(git rev-parse HEAD)
 
-[ "${FULL_LOCAL_CURRENT_SHA1}" != "${CHANNEL_CURRENT_SHA1}" ] &&
-    echo "New channel update!"
+readonly UPDATE_MESSAGE="New channel update!"
+
+if [ "${FULL_LOCAL_CURRENT_SHA1}" != "${CHANNEL_CURRENT_SHA1}" ]; then
+    # If we are running interactively or from where an X display isn't available
+    if [ -v "$PS1" ] || [ ! -v "$DISPLAY" ] ; then
+        echo "${UPDATE_MESSAGE}"
+    else
+        yad --notification --image="software-update-available" --text="${UPDATE_MESSAGE}"
+    fi
+fi
