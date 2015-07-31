@@ -2,6 +2,7 @@
 #! nix-shell -i bash -p git yad hicolor_icon_theme
 
 set -o errexit
+set -o nounset
 set -o pipefail
 
 # Check out the channels repo with the channel you are running, like:
@@ -17,9 +18,9 @@ readonly CHANNEL_CURRENT_SHA1=$(git rev-parse HEAD)
 
 readonly UPDATE_MESSAGE="New channel update!"
 
-if [ "${FULL_LOCAL_CURRENT_SHA1}" != "${CHANNEL_CURRENT_SHA1}" ]; then
+if [ "${FULL_LOCAL_CURRENT_SHA1}" == "${CHANNEL_CURRENT_SHA1}" ]; then
     # If we are running interactively or from where an X display isn't available
-    if [ -v "$PS1" ] || [ ! -v "$DISPLAY" ] ; then
+    if [ -n "$(tty)" ] || [ ! -v DISPLAY ] ; then
         echo "${UPDATE_MESSAGE}"
     else
         yad --notification --image="software-update-available" --text="${UPDATE_MESSAGE}"
