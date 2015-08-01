@@ -94,4 +94,19 @@
         rsync -av --delete /home/nafai/ /media/MyBook2TB/Backup/shedemei/home/nafai/
       '';
     };
+
+    systemd.services.offlineimap = {
+      enable = true;
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      requires = [ "network-online.target" ];
+      description = "Run offlineimap for nafai";
+      path = with pkgs; [ offlineimap ];
+      serviceConfig = {
+        User = "nafai";
+        ExecStart = ''${pkgs.offlineimap}/bin/offlineimap'';
+        KillSignal = "SIGUSR2";
+        Restart = "always";
+      };
+    };
 }
