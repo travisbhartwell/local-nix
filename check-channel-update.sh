@@ -18,10 +18,10 @@ readonly LOCAL_VERSION=$(nixos-version | sed 's/.*\.\([^ ]*\) .*/\1/')
 
 check_for_update() {
     cd "${CHANNELS_DIR}"
-    readonly local FULL_LOCAL_CURRENT_SHA1=$(git rev-parse "${LOCAL_VERSION}")
+    local FULL_LOCAL_CURRENT_SHA1=$(git rev-parse "${LOCAL_VERSION}")
 
     git pull -q
-    readonly local CHANNEL_CURRENT_SHA1=$(git rev-parse HEAD)
+    local CHANNEL_CURRENT_SHA1=$(git rev-parse HEAD)
 
     if [ "${FULL_LOCAL_CURRENT_SHA1}" != "${CHANNEL_CURRENT_SHA1}" ]; then
         # If we are running interactively or
