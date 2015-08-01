@@ -1,6 +1,8 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash -p git yad hicolor_icon_theme
 
+# I run this from i3 like this:
+# exec --no-startup-id /home/nafai/Projects/local-nix/check-channel-update.sh --loop
 set -o errexit
 set -o nounset
 set -o pipefail
