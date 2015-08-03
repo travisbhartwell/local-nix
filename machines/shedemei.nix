@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
-{
+let
+    dovecot_wrapper = pkgs.writeScript "dovecot-wrapper"
+      ''
+        #!${pkgs.stdenv.shell}
+        exec ${pkgs.dovecot}/libexec/dovecot/imap -c ${config.services.dovecot2.configFile}
+      '';
+in {
   imports =
     [
       /etc/nixos/common/config.nix
@@ -101,7 +107,8 @@
       after = [ "network.target" ];
       requires = [ "network-online.target" ];
       description = "Run offlineimap for nafai";
-      path = with pkgs; [ offlineimap ];
+      path = [ pkgs.offlineimap ];
+      environment.DOVECOT_WRAPPER = dovecot_wrapper;
       serviceConfig = {
         User = "nafai";
         ExecStart = ''${pkgs.offlineimap}/bin/offlineimap'';
