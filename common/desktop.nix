@@ -47,6 +47,7 @@
     i3lock
     pa_applet
     rxvt_unicode-with-plugins
+    python34Packages.udiskie
     xdotool
     xlibs.xmodmap
     xsel
