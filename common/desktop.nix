@@ -49,7 +49,7 @@
     pa_applet
     python34Packages.udiskie
     rxvt_unicode-with-plugins
-    spacefm
+    spaceFM
     xdotool
     xlibs.xmodmap
     xsel
