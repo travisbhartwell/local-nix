@@ -17,6 +17,8 @@ in {
     boot.blacklistedKernelModules = [ "ath9k" ];
     boot.loader.grub.device = "/dev/sdb";
 
+    hardware.opengl.driSupport32Bit = true;
+
     networking = {
       hostName = "shedemei";
       # Also allow ssh on port 2500, mpd, and weechat relay
@@ -26,6 +28,9 @@ in {
     environment.systemPackages = with pkgs; [
       ## temporary
       ecryptfs
+
+      ## Hardware Support
+      libvdpau
 
       ## Music
       mpd
@@ -93,6 +98,7 @@ in {
     # Set up backup job
     systemd.services.home-backup = {
       enable = true;
+      requires = [ "home.mount" "media-MyBook2TB.mount" ];
       description = "Backup my home directory";
       startAt = "*-*-* 01:00:00";
       path = with pkgs; [ rsync ];
