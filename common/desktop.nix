@@ -53,7 +53,7 @@
     xsel
 
     ## Applications
-    chromium
+    chromiumBeta
     mpc_cli
     travis-hartwell-mail
   ];
