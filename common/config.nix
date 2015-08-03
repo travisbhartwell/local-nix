@@ -11,7 +11,7 @@
 
   nix = {
     useChroot = true;
-    binaryCaches =  [ "https://cache.nixos.org/" "https://hydra.nixos.org" ];
+    binaryCaches =  [ "https://cache.nixos.org/" ];
     trustedBinaryCaches = [ "https://cache.nixos.org/" "https://hydra.nixos.org" ];
   };
 
