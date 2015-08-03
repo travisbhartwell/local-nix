@@ -76,7 +76,7 @@
     isNormalUser = true;
     description = "Travis B. Hartwell";
     home = "/home/nafai";
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     shell = "/run/current-system/sw/bin/bash";
     uid = 1000;
     openssh.authorizedKeys.keys = [

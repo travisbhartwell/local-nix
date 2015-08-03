@@ -91,4 +91,7 @@
 
     displayManager.lightdm.enable = true;
   };
+
+  # The user also needs to be in the audio and video groups
+  users.extraUsers."nafai".extraGroups = [ "audio" "video" ];
 }
