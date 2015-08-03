@@ -43,9 +43,16 @@ in {
       w3m
 
       ## Applications
+      exercism
       ledger
       skype
-      weechat
+      steam
+
+      ## Applications for screencasting and livecoding
+      byzanz-record-window
+      kde5.kdenlive
+      obs-studio
+      simplescreenrecorder
     ];
 
     hardware.pulseaudio.package = pkgs.pulseaudioFull;

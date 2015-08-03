@@ -23,6 +23,8 @@ pkgs: rec {
    localPackagesHome = "${projectsHome}/local-apps";
 
    # Local Apps
+   byzanz-record-window =
+     pkgs.callPackage "${localPackagesHome}/byzanz-record-window" {};
    emacs-server =
      pkgs.callPackage "${localPackagesHome}/emacs-server" {};
    gtkmenu =

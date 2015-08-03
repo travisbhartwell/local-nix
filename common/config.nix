@@ -46,6 +46,7 @@
     ## command line utilities
     aspell
     aspellDicts.en
+    atool
     curl
     gist
     mr

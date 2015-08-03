@@ -29,6 +29,7 @@
 
     ## basic devlopment apps
     vimHugeX
+    nix-prefetch-scripts
 
     ## Emacs helpers
     ghostscript
@@ -46,8 +47,9 @@
     i3
     i3lock
     pa_applet
-    rxvt_unicode-with-plugins
     python34Packages.udiskie
+    rxvt_unicode-with-plugins
+    spacefm
     xdotool
     xlibs.xmodmap
     xsel
