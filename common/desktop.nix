@@ -70,6 +70,9 @@
     ];
   };
 
+  # gpg agent does this
+  programs.ssh.startAgent = false;
+
   # Smart disk monitoring
   services.smartd = {
     enable = true;
@@ -83,6 +86,8 @@
     enable = true;
     layout = "us";
     autorun = true;
+
+    startGnuPGAgent = true;
 
     windowManager = {
       i3.enable = true;
