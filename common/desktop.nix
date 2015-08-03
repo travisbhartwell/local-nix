@@ -64,6 +64,7 @@
     fonts = with pkgs; [
       corefonts
       dejavu_fonts
+      font-awesome-ttf
       source-code-pro
       ubuntu_font_family
     ];
