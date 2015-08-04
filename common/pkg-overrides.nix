@@ -7,14 +7,6 @@ pkgs: rec {
      installFlags = "NO_BIN_LINK=t";
    });
 
-   flashplayer = pkgs.flashplayer.overrideDerivation (attrs: rec {
-     version = "11.2.202.491";
-     src = pkgs.fetchurl {
-       url = "http://fpdownload.adobe.com/get/flashplayer/pdc/${version}/install_flash_player_11_linux.x86_64.tar.gz";
-       sha256 = "150zlnkq8jhhphfmyzdrpgi1y2sniqgx0a5ij994in3gvari9gpl";
-     };
-   });
-
    obs-studio = pkgs.obs-studio.override {
      pulseaudioSupport = true;
    };
