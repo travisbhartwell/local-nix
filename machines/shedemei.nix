@@ -129,4 +129,12 @@ in {
         Restart = "always";
       };
     };
+
+    users.extraUsers."albino" = {
+      isNormalUser = true;
+      description = "albino";
+      home = "/home/albino";
+      shell = "/run/current-system/sw/bin/bash";
+      uid = 1001;
+    };
 }
