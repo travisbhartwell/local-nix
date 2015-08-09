@@ -24,13 +24,7 @@
 
   services.fail2ban = {
     enable = true;
-    jails.ssh-iptables =
-      ''
-        enabled  = true
-        filter   = sshd
-        action   = iptables[name=SSH, port=ssh, protocol=tcp]
-        maxretry = 5
-      '';
+    jails.ssh-iptables = "enabled = true";
   };
 
   services.openssh.permitRootLogin = "no";
