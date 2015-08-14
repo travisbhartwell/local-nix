@@ -17,6 +17,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  boot.cleanTmpDir = true;
+
   boot.loader.grub = {
     enable = true;
     version = 2;
