@@ -95,7 +95,7 @@ in {
     '';
 
     # Virtualbox
-    services.virtualboxHost.enable = true;
+    virtualisation.virtualbox.host.enable = true;
     nixpkgs.config.virtualbox.enableExtensionPack = true;
     users.extraGroups.vboxusers.members = [ "nafai" ];
 
