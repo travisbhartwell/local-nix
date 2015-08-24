@@ -8,7 +8,7 @@ set -o nounset
 set -o pipefail
 
 readonly UPDATE_MESSAGE="New channel update!"
-readonly CHECK_FREQUENCY="1h";
+readonly CHECK_FREQUENCY="1h"
 
 # Check out the channels repo with the channel you are running, like:
 # git clone --depth=1 --branch=nixos-unstable \
@@ -26,7 +26,7 @@ check_for_update() {
     if [ "${FULL_LOCAL_CURRENT_SHA1}" != "${CHANNEL_CURRENT_SHA1}" ]; then
         # If we are running interactively or
         # from where an X display isn't available
-        if [ -n "$(tty)" ] || [ ! -v DISPLAY ] ; then
+        if tty -s || [ ! -v DISPLAY ] ; then
             echo "${UPDATE_MESSAGE}"
         else
             yad --notification \
