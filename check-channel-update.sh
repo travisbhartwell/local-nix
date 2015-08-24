@@ -14,10 +14,10 @@ readonly CHECK_FREQUENCY="1h"
 # git clone --depth=1 --branch=nixos-unstable \
 #     git@github.com:NixOS/nixpkgs-channels.git
 readonly CHANNELS_DIR="${HOME}/Projects/nix/nixpkgs-channels"
-readonly LOCAL_VERSION=$(nixos-version | sed 's/.*\.\([^ ]*\) .*/\1/')
 
 check_for_update() {
     cd "${CHANNELS_DIR}"
+    local LOCAL_VERSION=$(nixos-version | sed 's/.*\.\([^ ]*\) .*/\1/')
     local FULL_LOCAL_CURRENT_SHA1=$(git rev-parse "${LOCAL_VERSION}")
 
     git pull -q
