@@ -90,7 +90,7 @@ in {
     services.udev.extraRules = ''
        ENV{adb_user}="yes"
        SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", SYMLINK+="android_adb"
-       SUBSYSTEM=="usb", ATTRS(idVender)=="18d1", SYMLINK+="android_fastboot"
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", SYMLINK+="android_fastboot"
     '';
 
     # Virtualbox
