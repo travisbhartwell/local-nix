@@ -11,12 +11,18 @@ pkgs: rec {
      pulseaudioSupport = true;
    };
 
+   mumble = pkgs.mumble.override {
+     pulseSupport = true;
+   };
+
    projectsHome = "/home/nafai/Projects";
    localPackagesHome = "${projectsHome}/local-apps";
 
    # Local Apps
    byzanz-record-window =
      pkgs.callPackage "${localPackagesHome}/byzanz-record-window" {};
+   emacs-pdf-tools =
+     pkgs.callPackage "${localPackagesHome}/emacs-pdf-tools" {};
    emacs-server =
      pkgs.callPackage "${localPackagesHome}/emacs-server" {};
    gtkmenu =
