@@ -79,9 +79,8 @@ in {
     # OpenSSH
     services.openssh.ports = [ 22 2500 ];
 
-    # Also watch sdc and sdd
+    # Also watch sdd
     services.smartd.devices = [
-      { device = "/dev/sdc"; }
       { device = "/dev/sdd"; }
     ];
 
