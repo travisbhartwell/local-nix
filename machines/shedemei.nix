@@ -23,6 +23,7 @@ in {
       hostName = "shedemei";
       # Also allow ssh on port 2500, mpd, and weechat relay
       firewall.allowedTCPPorts = [ 2500 6600 8001 ];
+      extraHosts = builtins.readFile "/home/nafai/Projects/local-nix/machines/shedemei-hosts";
     };
 
     environment.systemPackages = with pkgs; [
