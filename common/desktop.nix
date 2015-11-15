@@ -11,6 +11,7 @@
     chromium = {
       enablePepperFlash = true;
       enablePepperPDF = true;
+      enableWideVine = true;
     };
   };
 
@@ -63,10 +64,13 @@
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
+    fontconfig.ultimate.enable = true;
+    fontconfig.ultimate.rendering = pkgs.fontconfig-ultimate.rendering.osx;
     fonts = with pkgs; [
       corefonts
       dejavu_fonts
       font-awesome-ttf
+      hack-font
       source-code-pro
       ubuntu_font_family
     ];
