@@ -7,12 +7,12 @@ pkgs: rec {
      installFlags = "NO_BIN_LINK=t";
    });
 
-   obs-studio = pkgs.obs-studio.override {
-     pulseaudioSupport = true;
-   };
-
    mumble = pkgs.mumble.override {
      pulseSupport = true;
+   };
+
+   obs-studio = pkgs.obs-studio.override {
+     pulseaudioSupport = true;
    };
 
    projectsHome = "/home/nafai/Projects";

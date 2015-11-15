@@ -114,7 +114,7 @@ in {
     };
 
     systemd.services.offlineimap = {
-      enable = true;
+      enable = false;
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
       requires = [ "network-online.target" ];
