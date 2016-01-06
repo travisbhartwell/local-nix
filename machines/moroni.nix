@@ -12,6 +12,7 @@
 
   networking = {
     hostName = "moroni";
+    firewall.allowedTCPPorts = [ 80 443 ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -27,5 +28,8 @@
     jails.ssh-iptables = "enabled = true";
   };
 
-  services.openssh.permitRootLogin = "no";
+  services.openssh = {
+    permitRootLogin = "no";
+    ports = [ 22 80 443 ];
+  };
 }
