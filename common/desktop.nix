@@ -52,7 +52,6 @@
     rxvt_unicode-with-plugins
     spaceFM
     xdotool
-    xlibs.xmodmap
     xsel
 
     ## Applications
@@ -64,8 +63,6 @@
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
-    fontconfig.ultimate.enable = true;
-    fontconfig.ultimate.rendering = pkgs.fontconfig-ultimate.rendering.osx;
     fonts = with pkgs; [
       corefonts
       dejavu_fonts
@@ -91,6 +88,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
+    xkbOptions = "caps:escape";
     autorun = true;
 
     startGnuPGAgent = true;
