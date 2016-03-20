@@ -22,7 +22,7 @@ in {
     networking = {
       hostName = "shedemei";
       # Also allow ssh on port 2500, mpd, and weechat relay
-      firewall.allowedTCPPorts = [ 2500 6600 8001 ];
+      firewall.allowedTCPPorts = [ 2500 6600 8000 8001 ];
       extraHosts = builtins.readFile "/home/nafai/Projects/local-nix/machines/shedemei-hosts";
     };
 
@@ -72,8 +72,17 @@ in {
         audio_output {
                type		"pulse"
                name		"Local Music Player Daemon"
-               server		"127.0.0.1"
+               server	"127.0.0.1"
         }
+
+        audio_output {
+               type		 "httpd"
+               name		 "My HTTP Stream"
+               encoder "vorbis"
+               port		 "8000"
+               bitrate "192"
+               format	 "44100:16:1"
+               }
       '';
     };
 
