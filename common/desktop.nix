@@ -91,8 +91,6 @@
     xkbOptions = "caps:escape";
     autorun = true;
 
-    startGnuPGAgent = true;
-
     windowManager = {
       i3.enable = true;
       default = "i3";
