@@ -47,6 +47,7 @@
 
     # Xserver
     services.xserver = {
+      config = builtins.readFile "/home/nafai/Projects/local-nix/machines/songoftam-xorgconf";
       vaapiDrivers = with pkgs; [ vaapiIntel vaapiVdpau ];
       videoDrivers = [ "nvidia" ];
       synaptics.enable = true;
