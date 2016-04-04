@@ -7,6 +7,8 @@
       /etc/nixos/common/desktop.nix
     ];
 
+    # I don't use the intel GPU, so blacklist it
+    boot.blacklistedKernelModules = [ "i915" ];
     boot.loader.grub.device = "/dev/sda";
     boot.initrd.luks.devices = [
        {
