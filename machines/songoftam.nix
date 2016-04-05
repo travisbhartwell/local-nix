@@ -7,8 +7,6 @@
       /etc/nixos/common/desktop.nix
     ];
 
-    # I don't use the intel GPU, so blacklist it
-    boot.blacklistedKernelModules = [ "i915" ];
     boot.loader.grub.device = "/dev/sda";
     boot.initrd.luks.devices = [
        {
@@ -37,6 +35,7 @@
       steam
     ];
 
+    hardware.bumblebee.enable = true;
     hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
     # Enable udev rules for Android devices
@@ -49,9 +48,9 @@
 
     # Xserver
     services.xserver = {
-      config = builtins.readFile "/home/nafai/Projects/local-nix/machines/songoftam-xorgconf";
-      vaapiDrivers = with pkgs; [ vaapiIntel vaapiVdpau ];
-      videoDrivers = [ "nvidia" ];
-      synaptics.enable = true;
+      synaptics = {
+        enable = true;
+        twoFingerScroll = true;
+      };
     };
 }
