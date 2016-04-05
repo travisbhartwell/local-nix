@@ -20,15 +20,11 @@
 
     networking = {
       hostName = "songoftam";
-      # Also allow ssh on port 2500, mpd, and weechat relay
       extraHosts = builtins.readFile "/home/nafai/Projects/local-nix/machines/songoftam-hosts";
       wireless.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
-      ## Hardware Support
-      libvdpau
-
       ## Applications
       ledger
       skype
