@@ -17,8 +17,9 @@
 
   hardware.pulseaudio.enable = true;
 
-  # Allow temporary web server
-  networking.firewall.allowedTCPPorts = [ 8888 ];
+  # Allow temporary web server and syncthing
+  networking.firewall.allowedTCPPorts = [ 8888 22000 ];
+  networking.firewall.allowedUDPPorts = [ 21207 ];
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
