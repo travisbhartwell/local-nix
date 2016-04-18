@@ -76,6 +76,8 @@
   # Services
   services.openssh.enable = true;
 
+  system.stateVersion = "16.09";
+
   users.extraUsers."nafai" = {
     isNormalUser = true;
     description = "Travis B. Hartwell";

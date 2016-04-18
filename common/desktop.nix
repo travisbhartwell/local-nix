@@ -38,6 +38,7 @@
     poppler_utils
 
     ## Basic X
+    gnupg
     compton
     conky
     dmenu
@@ -69,6 +70,7 @@
       dejavu_fonts
       font-awesome-ttf
       hack-font
+      powerline-fonts
       source-code-pro
       ubuntu_font_family
     ];

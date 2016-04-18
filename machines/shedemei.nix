@@ -44,14 +44,12 @@ in {
       w3m
 
       ## Applications
-      exercism
       ledger
       skype
       steam
 
       ## Applications for screencasting and livecoding
       byzanz-record-window
-      kde5.kdenlive
       obs-studio
       simplescreenrecorder
     ];

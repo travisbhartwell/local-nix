@@ -16,7 +16,11 @@
        }
     ];
 
-    hardware.opengl.driSupport32Bit = true;
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
 
     networking = {
       hostName = "songoftam";
@@ -36,6 +40,10 @@
 
     # Enable udev rules for Android devices
     services.udev.packages = with pkgs; [ android-udev-rules ];
+
+    # Docker
+    virtualisation.docker.enable = true;
+    users.extraGroups.docker.members = [ "nafai" ];
 
     # Virtualbox
     virtualisation.virtualbox.host.enable = true;

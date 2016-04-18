@@ -1,5 +1,6 @@
 {
   allowUnfree = true;
+  allowBroken = true;
 
   useChroot = true;
   binaryCaches =  [ "https://cache.nixos.org/" ];
@@ -9,6 +10,7 @@
   firefox = {
     enableGoogleTalkPlugin = true;
     enableAdobeFlash = true;
+    icedtea = true;
   };
 
   packageOverrides = import /home/nafai/Projects/local-nix/common/pkg-overrides.nix;
