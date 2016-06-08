@@ -33,6 +33,7 @@
       ledger
       skype
       steam
+      vagrant
     ];
 
     hardware.bumblebee.enable = true;
