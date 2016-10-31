@@ -17,8 +17,8 @@
 
   hardware.pulseaudio.enable = true;
 
-  # Allow temporary web server and syncthing
-  networking.firewall.allowedTCPPorts = [ 8888 22000 ];
+  # Allow temporary web server, syncthing, prometheus, and graphana
+  networking.firewall.allowedTCPPorts = [ 3000 8888 9090 9091 9100 22000 ];
   networking.firewall.allowedUDPPorts = [ 21207 ];
 
   environment.systemPackages = with pkgs; [
@@ -57,9 +57,9 @@
     xsel
 
     ## Applications
-    chromiumBeta
+    chromium
     mpc_cli
-    travis-hartwell-mail
+    # travis-hartwell-mail
   ];
 
   fonts = {

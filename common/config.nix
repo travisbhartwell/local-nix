@@ -64,7 +64,7 @@
     which
 
     ## basic development apps
-    emacs
+    (lowPrio emacs)
     emacs-server
     gitAndTools.gitFull
   ];

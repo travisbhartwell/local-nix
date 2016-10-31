@@ -3,8 +3,6 @@ pkgs: rec {
    emacs = pkgs.emacs.overrideDerivation (oldAttrs : {
      withGTK2 = false;
      withGTK3 = true;
-     makeFlags = "NO_BIN_LINK=t";
-     installFlags = "NO_BIN_LINK=t";
    });
 
    mumble = pkgs.mumble.override {
@@ -35,6 +33,6 @@ pkgs: rec {
      };
 
    # Lowbrow
-   lowbrow-dev-env =
-     pkgs.callPackage "${projectsHome}/lowbrow/Lowbrow.app" {};
+   #lowbrow-dev-env =
+   #  pkgs.callPackage "${projectsHome}/lowbrow/Lowbrow.app" {};
 }

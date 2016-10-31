@@ -7,6 +7,9 @@
       /etc/nixos/common/desktop.nix
     ];
 
+    boot.kernelModules = [ "tp_smapi" ];
+    boot.extraModulePackages = [ config.boot.kernelPackages.tp_smapi ];
+
     boot.loader.grub.device = "/dev/sda";
     boot.initrd.luks.devices = [
        {
