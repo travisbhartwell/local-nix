@@ -7,7 +7,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-readonly UPDATE_MESSAGE="New channel update!"
+readonly UPDATE_MESSAGE="New channel update to version "
 readonly CHECK_FREQUENCY="1h"
 
 # Check out the channels repo with the channel you are running, like:
@@ -31,7 +31,7 @@ check_for_update() {
         else
             yad --notification \
                 --image="software-update-available" \
-                --text="${UPDATE_MESSAGE}"
+                --text="${UPDATE_MESSAGE} ${CHANNEL_CURRENT_SHA1}"
         fi
     fi
 }
