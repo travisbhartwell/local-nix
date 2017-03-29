@@ -7,13 +7,13 @@
       ./local-pkgs.nix
     ];
 
-  nixpkgs.config = {
-    chromium = {
-      enablePepperFlash = true;
-      enablePepperPDF = true;
-      enableWideVine = true;
-    };
-  };
+  # nixpkgs.config = {
+  #   chromium = {
+  #     enablePepperFlash = true;
+  #     enablePepperPDF = true;
+  #     enableWideVine = true;
+  #   };
+  # };
 
   hardware.pulseaudio.enable = true;
 

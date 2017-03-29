@@ -25,6 +25,8 @@
       driSupport32Bit = true;
     };
 
+    hardware.bluetooth.enable = true;
+
     networking = {
       hostName = "songoftam";
       extraHosts = builtins.readFile "/home/nafai/Projects/local-nix/machines/songoftam-hosts";

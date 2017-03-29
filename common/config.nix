@@ -71,7 +71,7 @@
 
   programs.bash.enableCompletion = true;
 
-  security.setuidPrograms = [ "mtr" ];
+  programs.mtr.enable = true;
 
   # Services
   services.openssh.enable = true;
