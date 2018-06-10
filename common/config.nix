@@ -36,7 +36,7 @@
     firewall.allowedTCPPorts = [ 22 ];
   };
 
-  time.timeZone = "America/Denver";
+  time.timeZone = "America/Los_Angeles";
 
   environment.systemPackages = with pkgs; [
     ## system level stuff
@@ -76,7 +76,7 @@
   # Services
   services.openssh.enable = true;
 
-  system.stateVersion = "16.09";
+  system.nixos.stateVersion = "18.03";
 
   users.extraUsers."nafai" = {
     isNormalUser = true;

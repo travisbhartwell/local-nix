@@ -50,7 +50,7 @@
     i3
     i3lock
     pa_applet
-    python34Packages.udiskie
+    udiskie
     rxvt_unicode-with-plugins
     spaceFM
     xdotool
@@ -88,10 +88,10 @@
   };
 
   # Enable SyncThing
-  services.syncthing = {
-    enable = true;
-    user = "nafai";
-  };
+  # services.syncthing = {
+  #   enable = true;
+  #   user = "nafai";
+  # };
 
   # Enable the X11 windowing system.
   services.xserver = {

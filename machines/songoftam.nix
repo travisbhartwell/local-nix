@@ -42,6 +42,7 @@
     ];
 
     hardware.bumblebee.enable = true;
+    hardware.bumblebee.connectDisplay = true;
     hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
     # Enable udev rules for Android devices
@@ -62,5 +63,18 @@
         enable = true;
         twoFingerScroll = true;
       };
+
+      videoDrivers = [ "intel" "vesa" ];
+    };
+
+    # Set up backup job
+    systemd.services.home-backup = {
+      enable = true;
+      description = "Backup my home directory";
+      startAt = "*-*-* 01:00:00";
+      path = with pkgs; [ rsync utillinux ];
+      script = ''
+        mountpoint -q /run/media/nafai/Toshiba3TB && rsync -av --delete /home/nafai/ /run/media/nafai/Toshiba3TB/Backup/songoftam/home/nafai/
+      '';
     };
 }
