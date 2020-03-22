@@ -11,13 +11,12 @@
     boot.extraModulePackages = [ config.boot.kernelPackages.tp_smapi ];
 
     boot.loader.grub.device = "/dev/sda";
-    boot.initrd.luks.devices = [
-       {
-         name = "root";
+    boot.initrd.luks.devices = {
+      root = {
          device = "/dev/sda3";
          preLVM = true;
-       }
-    ];
+      };
+    };
 
     hardware.opengl = {
       enable = true;
@@ -35,7 +34,10 @@
 
     environment.systemPackages = with pkgs; [
       ## Applications
+      keybase-gui
       ledger
+      rclone
+      rclone-browser
       skype
       steam
       vagrant
@@ -48,13 +50,16 @@
     # Enable udev rules for Android devices
     services.udev.packages = with pkgs; [ android-udev-rules ];
 
+    # Keybase
+    services.kbfs.enable = true;
+
     # Docker
     virtualisation.docker.enable = true;
     users.extraGroups.docker.members = [ "nafai" ];
 
     # Virtualbox
     virtualisation.virtualbox.host.enable = true;
-    nixpkgs.config.virtualbox.enableExtensionPack = true;
+    virtualisation.virtualbox.host.enableExtensionPack = true;
     users.extraGroups.vboxusers.members = [ "nafai" ];
 
     # Xserver

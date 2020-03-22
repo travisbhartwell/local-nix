@@ -25,10 +25,9 @@
     version = 2;
   };
 
-  i18n = {
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
+  console.keyMap = "us";
+
+  i18n.defaultLocale = "en_US.UTF-8";
 
   networking = {
     domain = "travishartwell.net";
@@ -55,7 +54,6 @@
     mr
     mtr
     mutt
-    nix-repl
     python27Packages.pygments
     silver-searcher
     tmux
@@ -76,7 +74,7 @@
   # Services
   services.openssh.enable = true;
 
-  system.nixos.stateVersion = "18.03";
+  system.stateVersion = "19.09";
 
   users.extraUsers."nafai" = {
     isNormalUser = true;

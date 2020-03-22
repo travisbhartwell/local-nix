@@ -100,14 +100,14 @@
     xkbOptions = "caps:escape";
     autorun = true;
 
-    windowManager = {
-      i3.enable = true;
-      default = "i3";
-    };
+    windowManager.i3.enable = true;
 
     desktopManager.xterm.enable = false;
 
-    displayManager.lightdm.enable = true;
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "none+i3";
+    };
   };
 
   # The user also needs to be in the audio and video groups
